@@ -46,6 +46,8 @@ public class EditActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (editar){
+
+                }
             }
         });
     }
