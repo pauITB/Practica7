@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Firebase1</string>
+    <string name="nuevo_c_mic">Nuevo cómic</string>
+    <string name="titulo_del_comic">Titulo del cómic</string>
+</resources>
