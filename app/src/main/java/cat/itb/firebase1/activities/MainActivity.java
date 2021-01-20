@@ -1,4 +1,4 @@
-package cat.itb.firebase1;
+package cat.itb.firebase1.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import cat.itb.firebase1.R;
 import cat.itb.firebase1.adapter.ComicsAdapter;
 import cat.itb.firebase1.model.Comic;
 

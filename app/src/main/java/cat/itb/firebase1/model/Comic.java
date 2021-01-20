@@ -9,7 +9,7 @@ public class Comic {
     public Comic() {
     }
 
-    public Comic(String idComic, String nombre, String editorial, int nota) {
+    public Comic(String idComic, String nombre, String editorial, float nota) {
         this.idComic = idComic;
         this.nombre = nombre;
         this.editorial = editorial;
