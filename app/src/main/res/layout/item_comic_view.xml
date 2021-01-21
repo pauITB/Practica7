@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorAccent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primaryLightColor"
     android:layout_margin="5sp">
 
     <LinearLayout
@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:text="Hola perpdiofjdsaf"
             android:textSize="24sp"
+            android:textColor="@color/primaryTextColor"
             >
 
         </TextView>
@@ -25,7 +26,8 @@
             android:id="@+id/editorialTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hola perpdiofjdsaf"
+            tools:text="Hola perpdiofjdsaf"
+            android:textColor="@color/primaryTextColor"
             >
 
         </TextView>
@@ -52,6 +54,7 @@
            android:layout_height="wrap_content"
            android:layout_weight="0.5"
            android:textSize="24sp"
+           android:textColor="@color/primaryTextColor"
            android:gravity="end"
            android:text="5.0"
            android:paddingEnd="20sp"
