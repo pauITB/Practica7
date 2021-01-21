@@ -23,6 +23,7 @@
 
     </TextView>
 
+
     <EditText
         android:id="@+id/tituloEditText"
         android:layout_width="match_parent"
