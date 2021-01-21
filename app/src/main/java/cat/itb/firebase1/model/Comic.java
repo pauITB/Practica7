@@ -9,6 +9,12 @@ public class Comic {
     public Comic() {
     }
 
+    public Comic(String nombre, String editorial, float nota) {
+        this.nombre = nombre;
+        this.editorial = editorial;
+        this.nota = nota;
+    }
+
     public Comic(String idComic, String nombre, String editorial, float nota) {
         this.idComic = idComic;
         this.nombre = nombre;

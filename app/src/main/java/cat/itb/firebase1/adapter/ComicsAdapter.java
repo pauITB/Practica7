@@ -1,5 +1,6 @@
 package cat.itb.firebase1.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,21 +15,30 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import cat.itb.firebase1.activities.EditActivity;
 import cat.itb.firebase1.R;
+import cat.itb.firebase1.database.FirebaseAPI;
 import cat.itb.firebase1.model.Comic;
 
 public class ComicsAdapter  extends FirebaseRecyclerAdapter<Comic, ComicsAdapter.ComicHolder> {
 
+    private FirebaseRecyclerOptions<Comic> comics;
+    private Context context ;
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
 
     public ComicsAdapter(@NonNull FirebaseRecyclerOptions<Comic> options) {
         super(options);
+        comics=options;
     }
 
     @Override
     protected void onBindViewHolder(@NonNull ComicsAdapter.ComicHolder holder, int position, @NonNull Comic model) {
         holder.bind(model);
-//        holder.nombre.setText(model.getNombre());
-//        holder.editorial.setText(model.getEditorial());
-//        holder.nota.setText(Float.toString(model.getNota()));
 
     }
 
@@ -38,6 +48,16 @@ public class ComicsAdapter  extends FirebaseRecyclerAdapter<Comic, ComicsAdapter
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_comic_view,parent,false);
         return new ComicsAdapter.ComicHolder(v);
     }
+
+
+
+
+    public void deleteItem(int position) {
+        FirebaseAPI firebaseAPI = new FirebaseAPI();
+        firebaseAPI.deleteItem(comics.getSnapshots().get(position).getIdComic());
+
+    }
+
 
     public class ComicHolder extends RecyclerView.ViewHolder{
         TextView nombre;

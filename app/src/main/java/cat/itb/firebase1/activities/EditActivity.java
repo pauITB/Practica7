@@ -10,9 +10,9 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import cat.itb.firebase1.R;
+import cat.itb.firebase1.database.FirebaseAPI;
 import cat.itb.firebase1.model.Comic;
 
 public class EditActivity extends AppCompatActivity {
@@ -21,8 +21,7 @@ public class EditActivity extends AppCompatActivity {
     RatingBar ratingBar;
     Button buttonEdit;
 
-    FirebaseDatabase database;
-    DatabaseReference myRef;
+    FirebaseAPI firebaseAPI = new FirebaseAPI();
     Boolean editar=false;
 
     @Override
@@ -30,8 +29,6 @@ public class EditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Comic");
         textView = findViewById(R.id.textView);
         titulo = findViewById(R.id.tituloEditText);
         editorial = findViewById(R.id.editorialEditText);
@@ -52,12 +49,11 @@ public class EditActivity extends AppCompatActivity {
                 if (editar){
                     String key = bundle.getString("Key");
                     Comic comic = new Comic(key,titulo.getText().toString(),editorial.getText().toString(),ratingBar.getRating());
-                    myRef.child(key).setValue(comic);
+                    firebaseAPI.editItem(comic);
                     finish();
                 }else {
-                    String key = myRef.push().getKey();
-                    Comic comic = new Comic(key,titulo.getText().toString(),editorial.getText().toString(),ratingBar.getRating());
-                    myRef.child(key).setValue(comic);
+                    Comic comic = new Comic(titulo.getText().toString(),editorial.getText().toString(),ratingBar.getRating());
+                    firebaseAPI.insert(comic);
                     finish();
                 }
             }
